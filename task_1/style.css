@@ -1,0 +1,14 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    margin: 5px;
+}
+
+input,
+.result {
+    margin: 5px;
+}
