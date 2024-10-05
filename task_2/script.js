@@ -1,6 +1,13 @@
-document.getElementById('send-btn-1').onclick = () => {
-    const messageInput1 = document.getElementById('message-input-1');
-    const messageText1 = messageInput1.value.trim();
+const sendBtn1 = document.getElementById('send-btn-1');
+const sendBtn2 = document.getElementById('send-btn-2');
+
+const inputMessage1 = document.getElementById('message-input-1');
+const inputMessage2 = document.getElementById('message-input-2');
+
+const chatBox = document.getElementById('chat-box');
+
+const btn1Click = () => {
+    const messageText1 = inputMessage1.value.trim();
 
     if (messageText1 !== "") {
         const messageElement1 = document.createElement('div');
@@ -15,15 +22,15 @@ document.getElementById('send-btn-1').onclick = () => {
         messageElement1.appendChild(userTitle1);
         messageElement1.appendChild(messageTextElement1);
 
-        document.getElementById('chat-box').appendChild(messageElement1);
-        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+        chatBox.appendChild(messageElement1);
+        chatBox.scrollTop = document.getElementById('chat-box').scrollHeight;
 
-        messageInput1.value = '';
+        inputMessage1.value = '';
     }
 };
-document.getElementById('send-btn-2').onclick = () => {
-    const messageInput2 = document.getElementById('message-input-2');
-    const messageText2 = messageInput2.value.trim();
+
+const btn2Click = () => {
+    const messageText2 = inputMessage2.value.trim();
 
     if (messageText2 !== "") {
         const messageElement2 = document.createElement('div');
@@ -38,9 +45,12 @@ document.getElementById('send-btn-2').onclick = () => {
         messageElement2.appendChild(userTitle2);
         messageElement2.appendChild(messageTextElement2);
 
-        document.getElementById('chat-box').appendChild(messageElement2);
-        document.getElementById('chat-box').scrollTop = document.getElementById('chat-box').scrollHeight;
+        chatBox.appendChild(messageElement2);
+        chatBox.scrollTop = document.getElementById('chat-box').scrollHeight;
 
-        messageInput2.value = '';
+        inputMessage2.value = '';
     }
 };
+
+sendBtn1.addEventListener('click', btn1Click);
+sendBtn2.addEventListener('click', btn2Click);
