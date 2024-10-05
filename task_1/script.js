@@ -1,3 +1,10 @@
+const inputLength = document.getElementById('length');
+const inputWidth = document.getElementById('width');
+
+const perimeterDiv = document.getElementById('perimeter');
+const areaDiv = document.getElementById('area');
+const diagonalDiv = document.getElementById('diagonal');
+
 function calculatePerimeter(length, width) {
     return 2 * (length + width);
 }
@@ -10,21 +17,29 @@ function calculateDiagonal(length, width) {
     return Math.sqrt(Math.pow(length, 2) + Math.pow(width, 2)).toFixed(4);
 }
 
+function setIncorrectInputText() {
+    perimeterDiv.textContent = 'Введіть коректні значення для розрахунку.';
+    areaDiv.textContent = '';
+    diagonalDiv.textContent = '';
+}
+
+function setCorrectInputText(length, width) {
+    perimeterDiv.textContent = calculatePerimeter(length, width);
+    areaDiv.textContent = calculateArea(length, width);
+    diagonalDiv.textContent = calculateDiagonal(length, width);
+}
+
 function updateResults() {
-    const length = parseFloat(document.getElementById('length').value);
-    const width = parseFloat(document.getElementById('width').value);
+    const length = parseFloat(inputLength.value);
+    const width = parseFloat(inputWidth.value);
 
     if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
-        document.getElementById('perimeter').textContent = 'Введіть коректні значення для розрахунку.';
-        document.getElementById('area').textContent = '';
-        document.getElementById('diagonal').textContent = '';
+        setIncorrectInputText();
         return;
     }
 
-    document.getElementById('perimeter').textContent = 'Периметр ' + calculatePerimeter(length, width);
-    document.getElementById('area').textContent = 'Площа ' + calculateArea(length, width);
-    document.getElementById('diagonal').textContent = 'Довжина діагоналі ' + calculateDiagonal(length, width);
+    setCorrectInputText(length, width);
 }
 
-document.getElementById('length').oninput = updateResults;
-document.getElementById('width').oninput = updateResults;
+inputLength.addEventListener('input', updateResults);
+inputWidth.addEventListener('input', updateResults);
