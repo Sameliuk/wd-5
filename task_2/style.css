@@ -31,6 +31,15 @@ body {
     align-self: first baseline;
 }
 
+.user-1 input,
+.user-2 input {
+    width: 250px;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
 label {
     font-size: 20px;
     font-weight: bold;
@@ -40,7 +49,7 @@ label {
 
 .user-1 button,
 .user-2 button {
-    margin-top: 10px;
+    margin-top: 5px;
     padding: 10px;
     border: none;
     background-color: #fcf011;
@@ -56,7 +65,7 @@ label {
 
 .message-1,
 .message-2 {
-    display: flex;
+    display: block;
     max-width: 50%;
     margin: 10px;
     padding: 10px;
@@ -68,11 +77,12 @@ label {
     background-color: #d1e7dd;
     align-self: flex-start;
     margin-right: auto;
+    text-align: left;
 }
 
 .message-2 {
     background-color: #f8d7da;
     align-self: flex-end;
-    text-align: right;
     margin-left: auto;
+    text-align: right;
 }
