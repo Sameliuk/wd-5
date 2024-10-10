@@ -66,6 +66,7 @@ label {
 .message-1,
 .message-2 {
     display: block;
+    max-width: 70%;
     min-width: 20%;
     width: fit-content;
     margin: 10px;
